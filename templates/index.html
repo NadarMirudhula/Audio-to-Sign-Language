@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<!--Code by Divinector (www.divinectorweb.com)-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="icon" type="image/x-icon" href="{% static "favicon.PNG" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "style.css" %}">    
+</head>
+<body class="bg">
+    {% include "header.html" %}
+        <div id="content-wrap" style="padding: 0px; margin: 0px;">
+            <div class="logo">
+                <img src="{% static "Capture 4.PNG" %}" alt="Logo" class="center">
+            </div>
+            <div class="welcome-text">
+            <h1>Welcome To <br> <span style="color: #532D0D;">Insta</span> <span style="color: #DB550D;">Hearing</span></h1>
+    
+            <a href="{% url 'animation' %}">START</a>
+            </div>        
+        </div>    
+    {% include "footer.html" %}
+</body>
+</html>

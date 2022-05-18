@@ -1,0 +1,33 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-Up</title>
+    <link rel="icon" type="image/x-icon" href="{% static "favicon.PNG" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "style.css" %}">    
+	<style>
+		#success_message{ display: none;}
+	</style>  
+</head>
+
+<body>
+  {% include "header.html" %}
+  {% block content %}
+  <div class="form-style">
+	<h1>Sign Up</h1>
+	<form class="site-form" action="." method="post">
+		{% csrf_token %}
+		{{ form }}
+		<br><br>
+		<input class="submit" type="submit" style="margin-left: 100px;" value="Sign Up">
+
+	</form>
+</div>
+<script type="text/javascript">
+	document.getElementsByTagName("span")[0].innerHTML="";
+	document.getElementsByTagName("span")[1].innerHTML="";
+</script>
+{% endblock %}
+ 
+	{% include "footer.html" %}
+</body>

@@ -1,0 +1,54 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Log-In</title>
+    <link rel="icon" type="image/x-icon" href="{% static "favicon.PNG" %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "style.css" %}">    
+	<style>
+		.form-style {
+			color: #532D0D;
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			font-size: 18px;
+		}
+
+		.form-style button{  
+	width: 100%;
+	height:70%;
+	padding: 10px;
+	font-size: 20px;
+	font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	color: white;
+	background-color: #532D0D;
+	align-self: center;
+}
+  
+.form-style button:hover {
+	background-color: white;
+	color: #532D0D;
+}
+
+	</style>
+</head>
+
+<body>
+  {% include "header.html" %}
+  {% block content %}
+  <div class="content2" style="padding-top: 50px; align-content: center;">
+		<div class="form-style">
+			<h1>Log in</h1>
+			<form class="site-form" action="." method="post">
+				{% csrf_token %}
+				{{ form }}
+				{% if request.GET.next %}
+					<input type="hidden" name="next" value="{{ request.GET.next }}">
+				{% endif %}
+				<input class="submit" type="submit" style="margin-left: 100px;" value="Log in">
+			</form>
+		</div>
+		<p style="font-size: medium; font-weight: 100; text-align: center; color: #532D0D;">Don't have a account? &nbsp;<a href="{% url 'signup' %}" style="font-size: medium; font-weight: 200; text-decoration: underline; color: #532D0D;">Sign-Up</a></p>
+			
+	</div>
+  {% endblock %}
+  {% include "footer.html" %}
+</body>
